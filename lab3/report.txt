@@ -1,0 +1,20 @@
+Joel Park
+JGPark
+
+1. These all assume that it is a discovery board like the class notes said. 
+   Speed: 72 mHz
+   RAM: 8 KB
+   Flash: 128 KB
+2. General Purpose input/output
+3. Question disregarded
+4. Port E: Pins: 11, 15
+5. GPIO_Mode, GPIO_Speed, GPIO_OType, GPIO_PUPD
+
+Difficulties:
+Many. We could not get github to work at first because each of us had made the SSH key on his own laptop. Then, we had quite a bit of
+trouble just understanding what was going on, before figuring that out. Next, we were initializing the LEDs incorrectly in three
+different ways, before finally we got the hint to use a bitwise or to initialize them all. After that, we had trouble getting the button
+to pause the cycle of lights. For a long time, we had it so that a button press would stop the lights from cycling, but the loop would
+continue. So you’d pause on the North light and end up on the South light after letting go of the button. Eventually we figured out that
+we needed to keep the i in the for loop from incrementing during pause time, and now it works as intended.
+

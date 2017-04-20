@@ -1,0 +1,28 @@
+Q1: It is because the nunchuck is pre-initialized by the port. So we can just use that.
+
+
+
+Q2:
+The i2c1_read function will checks if there is more than one byte of data before continuing.
+The i2c1_read_nunchuck function doesn't make this check, so we must assume that it only has one byte of data at a given time. It also clears flags and delays for one cycle before continuing, which means the flags must be set each time there is a transfer of data.
+
+Q3:
+jx=joystick x axis
+jy=joystick y axis
+ax=accelerometer x axis
+ay=accelerometer y axis
+az=accelerometer z axis
+c = c button
+z = z button
+
+Q4:
+The code is using a bitwise AND operation as a mask for the fifth value in the data.
+Depending on the result of this value, we can determine which buttons are being pressed at a given time.
+
+Difficulties: It was surprisingly tough to transform the previously made applications into
+function form. This was because they all relied on a while(1) loop, meaning that we
+could not just paste the code into a function because the function would never end, and 
+we wanted to be able to change the application being displayed. I learned quite a bit
+about the way the nunchuck communicates, and it seemed strange that the accelerometer
+data was represented as shorts, rather than floating point numbers. 
+
